@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: parksmap-dev
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/xdevops-caj-lab-gitops/gitops-repo-example.git'
+    path: apps/parksmap/overlays/dev
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: parksmap-dev
+  syncPolicy:
+    automated:
+      selfHeal: true
