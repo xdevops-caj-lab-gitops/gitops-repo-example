@@ -1,6 +1,14 @@
 # A Mono-Repository example for GitOps
 
-## Configure ArgoCD Admin permissions
+## Lab Env
+
+- 容器集群：OpenShift 4.10.24
+- GitOps工具: OpenShift GitOps Operator 1.6.0 (ArgoCD v2.3.7)
+- 版本控制：GitHub
+
+## 在OpenSfhit默认的ArgoCD上发布应用
+
+### Configure ArgoCD Admin permissions
 
 解决Login with OpenShift后在ArgoCD上没有权限操作的问题：
 1. 创建`cluster-admin-group`组，将指定用户添加到该组
@@ -16,7 +24,7 @@ g, cluster-admin-group, role:admin
 5. 检查`argocd-rbac-cm` ConfigMap，确保`policy.csv`的值符合预期
 6. 在ArgoCD上Log out再重新登录。
 
-## Create ArgoCD Applications
+### Create ArgoCD Applications
 
 Create ArgoCD applications on ArgoCD web console, or via below commands.
 
@@ -40,6 +48,9 @@ oc apply -f argocd/apps/spring-petclinic-dev.yaml -n openshift-gitops
 oc apply -f argocd/apps/spring-petclinic-test.yaml -n openshift-gitops
 ```
 
+## 在自定义的ArgoCD上发布应用
+
+TBC
 
 ## Clean Up
 
