@@ -91,6 +91,8 @@ Create cluster-wide resources in default `openshift-gitops` argocd instance:
 oc apply -f argocd/apps/cluster-config.yaml -n openshift-gitops
 ```
 
+Sync `cluster-config` application mannualy on ArgoCD web console.
+
 ### Create non cluster-wide resources
 Create non cluster-wide resources in customized `myargocd` argocd instance:
 ```bash
