@@ -115,15 +115,29 @@ oc apply -f argocd/apps/spring-petclinic-test.yaml -n myargocd
 
 Clean up priveous created applications and resources after testing.
 
+Clean up `cluster-config` application:
 ```bash
-# clean applications
 oc delete application cluster-config -n openshift-gitops
+```
+
+Clean up applications on `openshift-gitops` namespace:
+```bash
 oc delete application parksmap-dev -n openshift-gitops
 oc delete application parksmap-test -n openshift-gitops
 oc delete application spring-petclinic-dev -n openshift-gitops
 oc delete application spring-petclinic-test -n openshift-gitops
+```
 
-# clean projects
+Clean up applications on `myargocd` namespace:
+```bash
+oc delete application parksmap-dev -n myargocd
+oc delete application parksmap-test -n myargocd
+oc delete application spring-petclinic-dev -n myargocd
+oc delete application spring-petclinic-test -n myargocd
+```
+
+Clean up projects:
+```bash
 oc delete project parksmap-dev
 oc delete project parksmap-test
 oc delete project spring-petclinic-dev
