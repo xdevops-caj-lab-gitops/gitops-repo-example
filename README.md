@@ -113,7 +113,7 @@ oc apply -f argocd/apps/spring-petclinic-test.yaml -n myargocd
 
 By default, a namespace-scoped Argo CD control plane is not allowed to manage workloads in other namespaces.
 
-To authorize the GitOps control plane to deploy managed workloads in a namespace, the namespace owner needs to decorate the namespace resource with a `label` containing the reference to the namespace where the GitOps control plane resides.
+To authorize the GitOps control plane to deploy managed workloads in a namespace, the namespace owner needs to decorate the namespace resource with a label `argocd.argoproj.io/managed-by=<argocd-namespace>` containing the reference to the namespace where the GitOps control plane resides.
 
 ## Clean Up
 
