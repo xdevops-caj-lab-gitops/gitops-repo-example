@@ -82,10 +82,10 @@ g, myargocd-admin-group, role:admin
 ```
 5. 检查`argocd-rbac-cm` ConfigMap，确保`policy.csv`的值符合预期
 
-### Create cluster-wide resoruces
+### Create cluster-scoped resoruces
 Refer to below "Clean Up" section to clean up previous created ressources if necessary.
 
-Create cluster-wide resources in default `openshift-gitops` argocd instance:
+Create cluster-scoped resources in default `openshift-gitops` argocd instance:
 
 ```bash
 oc apply -f argocd/apps/cluster-config.yaml -n openshift-gitops
@@ -93,8 +93,8 @@ oc apply -f argocd/apps/cluster-config.yaml -n openshift-gitops
 
 Sync `cluster-config` application mannualy on ArgoCD web console.
 
-### Create non cluster-wide resources
-Create non cluster-wide resources in customized `myargocd` argocd instance:
+### Create application-scoped resources
+Create application-scoped resources in customized `myargocd` argocd instance:
 ```bash
 # parksmap
 oc label namespace parksmap-dev argocd.argoproj.io/managed-by=myargocd
